@@ -13,6 +13,8 @@ def fib(n)
   i = 0
   while i < n
     case i
+      # We put 0 and 1 first because first two numbers
+      #in fibonacci sequence are always 0 and 1
     when 0 then output << 0
     when 1 then output << 1
     else output << output[i - 1] + output[i - 2]
@@ -22,4 +24,6 @@ def fib(n)
   output
 end
 
-p fib(8)
+def fibs_rec
+end
+
