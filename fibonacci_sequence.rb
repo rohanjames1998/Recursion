@@ -1,11 +1,11 @@
 require 'pry-byebug'
 
 # --------------------------------#
-# Assignment 1
+# Assignment 1 - Fibonacci Sequence
 # --------------------------------#
 
 
-#Fibonacci Sequence without recursion
+# Fibonacci Sequence without recursion
 # This method takes a number(n) and returns an array
 # containing n amount of fibonacci numbers.
 def fib(n)
@@ -24,14 +24,13 @@ def fib(n)
   output
 end
 
-def fibs_rec(n, output=[])
-  if n == 2
-    return 1
-  elsif n == 1
-    return 0
-  end
-  return  fibs_rec(n - 1, output) + fibs_rec(n - 2,output)
+def fibs_rec(n)
+ return 1 if n == 2
+ return 0 if n == 1
+ return fibs_rec(n - 1) + fibs_rec(n - 2)
 end
+
+
 
 p fibs_rec(8)
 
