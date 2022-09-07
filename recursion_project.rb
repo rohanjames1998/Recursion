@@ -24,6 +24,8 @@ def fib(n)
   output
 end
 
-def fibs_rec
+def fibs_rec(n, output=[])
+
+  return output << fibs_rec(n - 1, output) + fibs_rec(n - 2, output)
 end
 
