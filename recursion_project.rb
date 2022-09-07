@@ -25,7 +25,11 @@ def fib(n)
 end
 
 def fibs_rec(n, output=[])
-
+  return output << 1 if n == 2
+  return output << 0 if n == 1
   return output << fibs_rec(n - 1, output) + fibs_rec(n - 2, output)
+  output
 end
+
+p fibs_rec(8)
 
