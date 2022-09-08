@@ -28,10 +28,13 @@ def fibs_rec(n)
 return [0] if n == 1
 return [0, 1] if n == 2
 output = fibs_rec(n - 1)
-output << output[-2] + output[-1]
+# Adding and pushing last two elements to form new fibonacci numbers
+output << output[-1] + output[-2]
 end
 
 
 
 p fibs_rec(8)
+p fib(8)
+
 
