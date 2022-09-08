@@ -30,7 +30,10 @@ def fibs_rec(n)
   elsif n == 2
     return [0, 1]
   else
+    output = fibs_rec(n - 1)
+    output << output[n - 1] + output[n - 2]
   end
+  output
 end
 
 
