@@ -25,9 +25,12 @@ def fib(n)
 end
 
 def fibs_rec(n)
- return 1 if n == 2
- return 0 if n == 1
- return fibs_rec(n - 1) + fibs_rec(n - 2)
+  if n == 1
+    return [0]
+  elsif n == 2
+    return [0, 1]
+  else
+  end
 end
 
 
