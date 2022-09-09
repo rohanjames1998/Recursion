@@ -1,4 +1,3 @@
-require 'pry-byebug'
 
 # --------------------------------#
 # Assignment 1 - Fibonacci Sequence
