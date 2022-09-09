@@ -21,12 +21,10 @@ def merge_sort(arr)
 
     # If one half becomes empty, we just add the other half to output and break the loop.
     if right_half.empty?
-      output << left_half
-      output.flatten!
+      left_half.each{ |x| output << x }
       break
     elsif left_half.empty?
-      output << right_half
-      output.flatten!
+      right_half.each{ |x| output << x}
       break
     end
 end
@@ -36,4 +34,5 @@ end
 
 
 p merge_sort([12,3,0,4121,31,44,2121,31,0])
+p merge_sort([5,4,3,2,1,0,-1])
 
