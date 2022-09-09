@@ -10,19 +10,21 @@ def merge_sort(arr)
     index_1 = arr.length/2.round
     index_2 = arr.length
     left_half = merge_sort(arr[0...index_1])
-    right_half = merge_sort(arr[index_1..index_2])
+    right_half = merge_sort(arr[index_1...index_2])
   end
   output = []
 right_half.each_with_index do |ele, i|
-  if right_half[i] == nil || right_half[i] > right_half[i]
+  if left_half[i] == nil
     output << ele
-    output << right_half[i]
-  elsif ele > right_half[i]
-    output << right_half[i]
-    output << right_half[i]
+  elsif ele > left_half[i]
+    output << left_half[i]
+    output << ele
+  elsif ele < left_half[i]
+    output << ele
+    output << left_half[i]
   else
     output << ele
-    output << right_half[i]
+    output << left_half[i]
   end
   return output
 end
