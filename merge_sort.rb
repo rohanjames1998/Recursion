@@ -1,4 +1,3 @@
-require 'pry-byebug'
 
 def merge_sort(arr)
   # Base Case: Return the sorted (1 length) array.
