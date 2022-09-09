@@ -1,6 +1,7 @@
 require 'pry-byebug'
 
 def merge_sort(arr)
+
   if arr.length == 1
    return arr
   else
@@ -14,7 +15,7 @@ def merge_sort(arr)
     if right_half[0] < left_half[0]
       output << right_half[0]
       right_half.delete_at(0)
-    elsif left_half[0] > right_half[0]
+    elsif left_half[0] < right_half[0]
       output << left_half[0]
       left_half.delete_at(0)
     else
@@ -24,29 +25,16 @@ def merge_sort(arr)
     if right_half.empty?
       output << left_half
       output.flatten!
+    elsif left_half.empty?
+      output << right_half
+      output.flatten!
     end
-    break if right_half.empty?
+    break if right_half.empty? || left_half.empty?
 end
 return output
 end
 
 
 
-p merge_sort([4,3,2,1,0])
+p merge_sort([5,4,3,2,1])
 
-
-# loop do
-# if left_half[i] == nil
-#   output << ele
-# elsif ele > left_half[i]
-#   output << left_half[i]
-#   left_half.delete_at(i)
-# elsif ele < left_half[i]
-#   output << ele
-#   right_half.delete_at(i)
-# else
-#   output << ele
-#   output << left_half[i]
-# end
-# i += 1
-# break if right_half
