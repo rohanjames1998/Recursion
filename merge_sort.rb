@@ -1,11 +1,8 @@
 require 'pry-byebug'
 
 def merge_sort(arr)
-  if arr.length == 2
-    left_half = Array.new
-    left_half << arr[0]
-    right_half = Array.new
-    right_half << arr[1]
+  if arr.length == 1
+    return arr
   else
     index_1 = arr.length/2.round
     index_2 = arr.length
@@ -26,11 +23,11 @@ right_half.each_with_index do |ele, i|
     output << ele
     output << left_half[i]
   end
-  return output
 end
+return output
 end
 
 
 
-p merge_sort([4,3,2,1])
+p merge_sort([4,3,2,1,0])
 
