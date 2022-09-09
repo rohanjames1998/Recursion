@@ -1,33 +1,39 @@
 require 'pry-byebug'
 
 def merge_sort(arr)
-  if arr.length == 1
-    return arr
-  else
-    index_1 = arr.length/2.round
-    index_2 = arr.length
-    left_half = merge_sort(arr[0...index_1])
-    right_half = merge_sort(arr[index_1...index_2])
-  end
+  # Base Case: Return the sorted (1 length) array.
+  return arr if arr.length == 1
+  # Dividing array into two parts as evenly as possible.
+    index = arr.length/2.round
+    left_half = merge_sort(arr[0...index])
+    right_half = merge_sort(arr[index...arr.length])
+
   output = []
-right_half.each_with_index do |ele, i|
-  if left_half[i] == nil
-    output << ele
-  elsif ele > left_half[i]
-    output << left_half[i]
-    output << ele
-  elsif ele < left_half[i]
-    output << ele
-    output << left_half[i]
-  else
-    output << ele
-    output << left_half[i]
-  end
+  loop do
+    # Comparing and deleting first elements to avoid duplications.
+    if right_half[0] <= left_half[0]
+      output << right_half[0]
+      right_half.delete_at(0)
+    elsif left_half[0] <= right_half[0]
+      output << left_half[0]
+      left_half.delete_at(0)
+    end
+
+    # If one half becomes empty, we just add the other half to output and break the loop.
+    if right_half.empty?
+      output << left_half
+      output.flatten!
+      break
+    elsif left_half.empty?
+      output << right_half
+      output.flatten!
+      break
+    end
 end
 return output
 end
 
 
 
-p merge_sort([4,3,2,1,0])
+p merge_sort([12,3,0,4121,31,44,2121,31,0])
 
